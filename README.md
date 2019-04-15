@@ -33,6 +33,7 @@ You can pass options to `metalsmith-layouts` with the [Javascript API](https://g
 * [pattern](#pattern): optional. Only files that match this pattern will be processed. Accepts a string or an array of strings. The default is `**`.
 * [engineOptions](#engineoptions): optional. Use this to pass options to the jstransformer that's rendering your layouts. The default is `{}`.
 * [suppressNoFilesError](#suppressnofileserror): optional. An error won’t be thrown if no files are present for processing.
+* [defaultExtension](#defaultextension): optional. The default extension to use for layouts when none is given.
 
 ### `default`
 
@@ -107,6 +108,10 @@ Would pass `{ "cache": false }` to the used jstransformer.
 `metalsmith-layouts` throws [an error](#no-files-to-process) in metalsmith if it can’t find any files to process. If you’re doing any kind of incremental builds via something like `metalsmith-watch`, this is problematic as you’re likely only rebuilding files that have changed. This flag allows you to suppress that error.
 
 Note that if you have [debugging](#errors-and-debugging) turned on, you’ll see a message denoting when no files are present for processing.
+
+### `defaultExtension`
+
+Normally `metalsmith-layouts` requires an extension to resolve the full filename of a layout. By setting the `defaultExtension` property, it is no longer necessary to provide the file extension in every file that needs to be processed.
 
 ## Example
 
